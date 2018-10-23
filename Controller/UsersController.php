@@ -22,8 +22,27 @@ class UsersController extends AppController {
  *
  * @var array
  */
-	public $components = array('Paginator', 'Session', 'Flash');
-
+	public $components = array('Paginator', 'Session', 'Flash',
+	'Auth' => array(
+		'loginAction' => array(
+			'controller' => 'listing',
+			'action' => 'index'
+		),
+		'logoutRedirect' => array(
+			'controller' => 'users',
+			'action' => 'login'
+		),
+		'authenticate' => array(
+			'Form' => array(
+				'passwordHasher' => 'Blowfish'
+			)
+			),
+		'Form' => array(
+			'fields' => array('username' => 'email')
+		)
+	)
+);
+	
 /**
  * index method
  *
@@ -113,6 +132,22 @@ class UsersController extends AppController {
 
 	public function login()
 	{
-			
+		if($this->request->is('post')){
+			if($this->Auth->login($this->request->data)){
+				return $this->redirect(array('controller' => 'listings', 'action' => 'index'));
+			}
+			else{
+				$this->Session->setFlash(__('Your email and password combination did not match. Please retry.'),'default', array('class' => 'alert alert-danger'));
+			}
+
+		}
+		else{
+			// $this->Session->setFlash(__('Please input your email and password to login.'), 'default', array('class' => 'alert alert-info'));
+		}
+	}
+
+	public function logout()
+	{
+		return $this->redirect($this->Auth->logout());
 	}
 }
