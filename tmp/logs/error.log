@@ -5251,3 +5251,21 @@ Stack Trace:
 #14 /var/www/html/Advisory/Vendor/cakephp/cakephp/lib/Cake/Routing/Dispatcher.php(167): Dispatcher->_invoke(Object(UsersController), Object(CakeRequest))
 #15 /var/www/html/Advisory/webroot/index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
 #16 {main}
+2018-10-24 00:08:21 Error: [MissingControllerException] Controller class ListingController could not be found.
+Exception Attributes: array (
+  'class' => 'ListingController',
+  'plugin' => NULL,
+)
+Request URL: /Advisory/listing
+Stack Trace:
+#0 /var/www/html/Advisory/webroot/index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2018-10-24 00:09:04 Error: [MissingControllerException] Controller class ListingController could not be found.
+Exception Attributes: array (
+  'class' => 'ListingController',
+  'plugin' => NULL,
+)
+Request URL: /Advisory/listing
+Stack Trace:
+#0 /var/www/html/Advisory/webroot/index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
