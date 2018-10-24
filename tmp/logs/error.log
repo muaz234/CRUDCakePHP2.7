@@ -5366,3 +5366,5 @@ Stack Trace:
 #3 /var/www/html/Advisory/Vendor/cakephp/cakephp/lib/Cake/Core/App.php(943): App::_checkFatalError()
 #4 [internal function]: App::shutdown()
 #5 {main}
+2018-10-25 00:38:03 Error: 
+2018-10-25 00:38:03 Error: $2a$10$QAiPxsjqI.9rVxyAT/N75OnHTVti.0CLks/WfFE/af2J8TbuPK1wC
