@@ -40,10 +40,10 @@ class User extends AppModel {
 	);
 
 	public function beforeSave($options = array()) {
-		if(isset($this->data[$this->alias]['password'])){
+		if(!$this->id){
 			$passwordHasher = new BlowfishPasswordHasher();
 			$this->data[$this->alias]['password'] = $passwordHasher->hash(
-				$this->data[$this->alias]['password']
+				$this->data[$this->alias]['encrypted_password']
 			);
 		}
 		return true ;

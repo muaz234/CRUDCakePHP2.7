@@ -22,32 +22,37 @@ class UsersController extends AppController {
  *
  * @var array
  */
-	public $components = array('Paginator', 'Session', 'Flash',
-	'Auth' => array(
-		'loginAction' => array(
-			'controller' => 'listing',
-			'action' => 'index'
-		),
-		'logoutRedirect' => array(
-			'controller' => 'users',
-			'action' => 'login'
-		),
-		'authenticate' => array(
-			'Form' => array(
-				'passwordHasher' => 'Blowfish'
-			)
-			),
-		'Form' => array(
-			'fields' => array('username' => 'email')
-		)
-	)
-);
+	// public $components = array('Paginator', 'Session', 'Flash',
+	// 'Auth' => array(
+	// 	'loginAction' => array(
+	// 		'controller' => 'listing',
+	// 		'action' => 'index'
+	// 	),
+	// 	'logoutRedirect' => array(
+	// 		'controller' => 'users',
+	// 		'action' => 'login'
+	// 	),
+	// 	'authenticate' => array(
+	// 		'Form' => array(
+	// 			'passwordHasher' => 'Blowfish'
+	// 		)
+	// 		),
+	// 	'Form' => array(
+	// 		'fields' => array('username' => 'email')
+	// 	)
+	// )
+// );
 	
 /**
  * index method
  *
  * @return void
  */
+
+	public function beforeFilter() {
+		parent::beforeFilter();
+	}
+
 	public function index() {
 		$this->User->recursive = 0;
 		$this->set('users', $this->Paginator->paginate());
@@ -73,10 +78,29 @@ class UsersController extends AppController {
  *
  * @return void
  */
+
+ public function generateRandomString($length = 32) {
+    $characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
+    $charactersLength = strlen($characters);
+    $randomString = '';
+    for ($i = 0; $i < $length; $i++) {
+        $randomString .= $characters[mt_rand(0, $charactersLength - 1)];
+    }
+    return $randomString;
+}
 	public function add() {
 		if ($this->request->is('post')) {
+			
+			
+			$create_user = array();
+			$create_user['User']['email'] = $this->request->data['User']['email'];
+			$create_user['User']['encrypted_password'] = $this->request->data['User']['encrypted_password'];
+			$create_user['User']['token'] = $this->generateRandomString(32);
+			$create_user['User']['type'] = $this->request->data['User']['type'];
+
+			// $hashed_password = Security::hash() 
 			$this->User->create();
-			if ($this->User->save($this->request->data)) {
+			if ($this->User->save($create_user)) {
 				$this->Flash->success(__('The user has been saved.'));
 				return $this->redirect(array('action' => 'index'));
 			} else {
@@ -133,8 +157,9 @@ class UsersController extends AppController {
 	public function login()
 	{
 		if($this->request->is('post')){
-			if($this->Auth->login($this->request->data)){
-				return $this->redirect(array('controller' => 'listings', 'action' => 'index'));
+			if($this->Auth->login()){
+				// return $this->redirect(array('controller' => 'listings', 'action' => 'index'));
+				return $this->redirect($this->Auth->redirect());
 			}
 			else{
 				$this->Session->setFlash(__('Your email and password combination did not match. Please retry.'),'default', array('class' => 'alert alert-danger'));

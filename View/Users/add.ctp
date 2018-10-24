@@ -3,10 +3,14 @@
 	<fieldset>
 		<legend><?php echo __('Add User'); ?></legend>
 	<?php
-		echo $this->Form->input('email');
-		echo $this->Form->input('encrypted_password');
-		echo $this->Form->input('token');
-		echo $this->Form->input('type');
+		echo $this->Form->input('User.email');
+		echo $this->Form->input('User.encrypted_password');
+		// echo $this->Form->input('token');
+		$user = array(
+			'u' => 'Normal user',
+			'a' => 'Administrator'
+		);
+		echo $this->Form->input('User.type', array('options' => $user));
 	?>
 	</fieldset>
 <?php echo $this->Form->end(__('Submit')); ?>

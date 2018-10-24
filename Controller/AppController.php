@@ -23,9 +23,9 @@ App::uses('Controller', 'Controller');
  */
 class AppController extends Controller {
 
-    public $components = array('DebugKit.Toolbar',
+    public $components = array('DebugKit.Toolbar','Paginator', 'Session', 'Flash',
     'Auth' => array(
-		'loginAction' => array(
+		'loginRedirect' => array(
 			'controller' => 'listing',
 			'action' => 'index'
 		),
@@ -34,20 +34,22 @@ class AppController extends Controller {
 			'action' => 'login'
 		),
 		'authenticate' => array(
-			'Form' => array(
-				'passwordHasher' => 'Blowfish'
-			)
-			),
 		'Form' => array(
-            'fields' => array('username' => 'email', 'password' => 'encrypted_password')
+			'fields' => array('username' => 'email', 
+			'password' => 'encrypted_password',
+			 'passwordHasher' => 'Blowfish')
             
 		)
 	)
+)
 );
+
 
 public function beforeFilter()
 {
-    $this->Auth->allow('login', 'logout', 'add');
+	$this->Auth->allow('login', 'logout', 'add');
+	Security::setHash('blowfish');
+
 }
 
 

@@ -5269,3 +5269,100 @@ Request URL: /Advisory/listing
 Stack Trace:
 #0 /var/www/html/Advisory/webroot/index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
 #1 {main}
+2018-10-24 22:46:21 Error: [MissingControllerException] Controller class ListingController could not be found.
+Exception Attributes: array (
+  'class' => 'ListingController',
+  'plugin' => NULL,
+)
+Request URL: /Advisory/listing
+Stack Trace:
+#0 /var/www/html/Advisory/webroot/index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2018-10-24 22:46:30 Error: [MissingControllerException] Controller class ListingController could not be found.
+Exception Attributes: array (
+  'class' => 'ListingController',
+  'plugin' => NULL,
+)
+Request URL: /Advisory/listing
+Stack Trace:
+#0 /var/www/html/Advisory/webroot/index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2018-10-24 23:15:39 Error: Fatal Error (4): syntax error, unexpected ';', expecting ')' in [/var/www/html/Advisory/Controller/AppController.php, line 43]
+2018-10-24 23:15:39 Error: [FatalErrorException] syntax error, unexpected ';', expecting ')'
+Request URL: /Advisory/users/login
+Stack Trace:
+#0 /var/www/html/Advisory/Vendor/cakephp/cakephp/lib/Cake/Error/ErrorHandler.php(212): ErrorHandler::handleFatalError(4, 'syntax error, u...', '/var/www/html/A...', 43)
+#1 [internal function]: ErrorHandler::handleError(4, 'syntax error, u...', '/var/www/html/A...', 43, Array)
+#2 /var/www/html/Advisory/Vendor/cakephp/cakephp/lib/Cake/Core/App.php(970): call_user_func('ErrorHandler::h...', 4, 'syntax error, u...', '/var/www/html/A...', 43, Array)
+#3 /var/www/html/Advisory/Vendor/cakephp/cakephp/lib/Cake/Core/App.php(943): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2018-10-24 23:17:48 Error: [MissingControllerException] Controller class ListingController could not be found.
+Exception Attributes: array (
+  'class' => 'ListingController',
+  'plugin' => NULL,
+)
+Request URL: /Advisory/listing
+Stack Trace:
+#0 /var/www/html/Advisory/webroot/index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2018-10-25 00:10:44 Error: Fatal Error (1): Call to undefined function generaterandomstring() in [/var/www/html/Advisory/Controller/UsersController.php, line 96]
+2018-10-25 00:10:44 Error: [FatalErrorException] Call to undefined function generaterandomstring()
+Request URL: /Advisory/users/add
+Stack Trace:
+#0 /var/www/html/Advisory/Vendor/cakephp/cakephp/lib/Cake/Error/ErrorHandler.php(212): ErrorHandler::handleFatalError(1, 'Call to undefin...', '/var/www/html/A...', 96)
+#1 [internal function]: ErrorHandler::handleError(1, 'Call to undefin...', '/var/www/html/A...', 96, Array)
+#2 /var/www/html/Advisory/Vendor/cakephp/cakephp/lib/Cake/Core/App.php(970): call_user_func('ErrorHandler::h...', 1, 'Call to undefin...', '/var/www/html/A...', 96, Array)
+#3 /var/www/html/Advisory/Vendor/cakephp/cakephp/lib/Cake/Core/App.php(943): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2018-10-25 00:13:50 Error: Fatal Error (1): Call to undefined function generateRandomString() in [/var/www/html/Advisory/Controller/UsersController.php, line 96]
+2018-10-25 00:13:50 Error: [FatalErrorException] Call to undefined function generateRandomString()
+Request URL: /Advisory/users/add
+Stack Trace:
+#0 /var/www/html/Advisory/Vendor/cakephp/cakephp/lib/Cake/Error/ErrorHandler.php(212): ErrorHandler::handleFatalError(1, 'Call to undefin...', '/var/www/html/A...', 96)
+#1 [internal function]: ErrorHandler::handleError(1, 'Call to undefin...', '/var/www/html/A...', 96, Array)
+#2 /var/www/html/Advisory/Vendor/cakephp/cakephp/lib/Cake/Core/App.php(970): call_user_func('ErrorHandler::h...', 1, 'Call to undefin...', '/var/www/html/A...', 96, Array)
+#3 /var/www/html/Advisory/Vendor/cakephp/cakephp/lib/Cake/Core/App.php(943): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2018-10-25 00:17:25 Error: Fatal Error (1): Call to undefined function generateRandomString() in [/var/www/html/Advisory/Controller/UsersController.php, line 93]
+2018-10-25 00:17:25 Error: [FatalErrorException] Call to undefined function generateRandomString()
+Request URL: /Advisory/users/add
+Stack Trace:
+#0 /var/www/html/Advisory/Vendor/cakephp/cakephp/lib/Cake/Error/ErrorHandler.php(212): ErrorHandler::handleFatalError(1, 'Call to undefin...', '/var/www/html/A...', 93)
+#1 [internal function]: ErrorHandler::handleError(1, 'Call to undefin...', '/var/www/html/A...', 93, Array)
+#2 /var/www/html/Advisory/Vendor/cakephp/cakephp/lib/Cake/Core/App.php(970): call_user_func('ErrorHandler::h...', 1, 'Call to undefin...', '/var/www/html/A...', 93, Array)
+#3 /var/www/html/Advisory/Vendor/cakephp/cakephp/lib/Cake/Core/App.php(943): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2018-10-25 00:20:51 Error: Fatal Error (1): Call to undefined function generateRandomString() in [/var/www/html/Advisory/Controller/UsersController.php, line 97]
+2018-10-25 00:20:51 Error: [FatalErrorException] Call to undefined function generateRandomString()
+Request URL: /Advisory/users/add
+Stack Trace:
+#0 /var/www/html/Advisory/Vendor/cakephp/cakephp/lib/Cake/Error/ErrorHandler.php(212): ErrorHandler::handleFatalError(1, 'Call to undefin...', '/var/www/html/A...', 97)
+#1 [internal function]: ErrorHandler::handleError(1, 'Call to undefin...', '/var/www/html/A...', 97, Array)
+#2 /var/www/html/Advisory/Vendor/cakephp/cakephp/lib/Cake/Core/App.php(970): call_user_func('ErrorHandler::h...', 1, 'Call to undefin...', '/var/www/html/A...', 97, Array)
+#3 /var/www/html/Advisory/Vendor/cakephp/cakephp/lib/Cake/Core/App.php(943): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2018-10-25 00:21:58 Error: Fatal Error (1): Call to undefined function generateRandomString() in [/var/www/html/Advisory/Controller/UsersController.php, line 94]
+2018-10-25 00:21:58 Error: [FatalErrorException] Call to undefined function generateRandomString()
+Request URL: /Advisory/users/add
+Stack Trace:
+#0 /var/www/html/Advisory/Vendor/cakephp/cakephp/lib/Cake/Error/ErrorHandler.php(212): ErrorHandler::handleFatalError(1, 'Call to undefin...', '/var/www/html/A...', 94)
+#1 [internal function]: ErrorHandler::handleError(1, 'Call to undefin...', '/var/www/html/A...', 94, Array)
+#2 /var/www/html/Advisory/Vendor/cakephp/cakephp/lib/Cake/Core/App.php(970): call_user_func('ErrorHandler::h...', 1, 'Call to undefin...', '/var/www/html/A...', 94, Array)
+#3 /var/www/html/Advisory/Vendor/cakephp/cakephp/lib/Cake/Core/App.php(943): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2018-10-25 00:22:53 Error: Fatal Error (1): Call to undefined function generateRandomString() in [/var/www/html/Advisory/Controller/UsersController.php, line 94]
+2018-10-25 00:22:53 Error: [FatalErrorException] Call to undefined function generateRandomString()
+Request URL: /Advisory/users/add
+Stack Trace:
+#0 /var/www/html/Advisory/Vendor/cakephp/cakephp/lib/Cake/Error/ErrorHandler.php(212): ErrorHandler::handleFatalError(1, 'Call to undefin...', '/var/www/html/A...', 94)
+#1 [internal function]: ErrorHandler::handleError(1, 'Call to undefin...', '/var/www/html/A...', 94, Array)
+#2 /var/www/html/Advisory/Vendor/cakephp/cakephp/lib/Cake/Core/App.php(970): call_user_func('ErrorHandler::h...', 1, 'Call to undefin...', '/var/www/html/A...', 94, Array)
+#3 /var/www/html/Advisory/Vendor/cakephp/cakephp/lib/Cake/Core/App.php(943): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
