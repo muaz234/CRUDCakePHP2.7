@@ -94,9 +94,9 @@ class UsersController extends AppController {
 			
 			$create_user = array();
 			$create_user['User']['email'] = $this->request->data['User']['email'];
-			Security::setHash('blowfish');
-			$hashed_password = Security::hash($this->request->data['User']['encrypted_password']);
-			$create_user['User']['encrypted_password'] = $hashed_password;
+			// Security::setHash('blowfish');
+			// $hashed_password = Security::hash($this->request->data['User']['encrypted_password']);
+			$create_user['User']['encrypted_password'] = $this->request->data['User']['encrypted_password'];
 			$create_user['User']['token'] = $this->generateRandomString(32);
 			$create_user['User']['type'] = $this->request->data['User']['type'];
 
@@ -158,7 +158,7 @@ class UsersController extends AppController {
 
 	public function login()
 	{
-		if($this->request->is('post')){
+		if($this->request->is('post', 'put')){
 			// $email = '';
 			// $hashed_password = ''; 
 			// $email = $this->request->data['User']['email'];

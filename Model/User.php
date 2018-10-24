@@ -8,6 +8,16 @@ App::uses('BlowfishPasswordHasher', 'Controller/Component/Auth');
  */
 class User extends AppModel {
 
+
+	public function beforeSave($options = array()) {
+		if(!$this->id){
+			$passwordHasher = new BlowfishPasswordHasher();
+			$this->data[$this->alias]['encrypted_password'] = $passwordHasher->hash(
+				$this->data[$this->alias]['encrypted_password']
+			);
+		}
+		return true ;
+	}
 /**
  * Display field
  *
@@ -39,14 +49,6 @@ class User extends AppModel {
 		)
 	);
 
-	public function beforeSave($options = array()) {
-		if(!$this->id){
-			$passwordHasher = new BlowfishPasswordHasher();
-			$this->data[$this->alias]['password'] = $passwordHasher->hash(
-				$this->data[$this->alias]['encrypted_password']
-			);
-		}
-		return true ;
-	}
+	
 
 }

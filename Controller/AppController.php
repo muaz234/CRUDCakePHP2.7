@@ -35,9 +35,11 @@ class AppController extends Controller {
 		),
 		'authenticate' => array(
 		'Form' => array(
-			'fields' => array('username' => 'email', 
+			'passwordHasher' => 'Blowfish',
+			'fields' => array(
+				'username' => 'email', 
 			'password' => 'encrypted_password',
-			 'passwordHasher' => 'Blowfish')
+			)
             
 		)
 	)
@@ -48,7 +50,7 @@ class AppController extends Controller {
 public function beforeFilter()
 {
 	$this->Auth->allow('login', 'logout', 'add');
-	Security::setHash('blowfish');
+	// Security::setHash('blowfish');
 
 }
 
