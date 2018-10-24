@@ -94,7 +94,9 @@ class UsersController extends AppController {
 			
 			$create_user = array();
 			$create_user['User']['email'] = $this->request->data['User']['email'];
-			$create_user['User']['encrypted_password'] = $this->request->data['User']['encrypted_password'];
+			Security::setHash('blowfish');
+			$hashed_password = Security::hash($this->request->data['User']['encrypted_password']);
+			$create_user['User']['encrypted_password'] = $hashed_password;
 			$create_user['User']['token'] = $this->generateRandomString(32);
 			$create_user['User']['type'] = $this->request->data['User']['type'];
 
