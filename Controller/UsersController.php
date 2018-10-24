@@ -159,6 +159,12 @@ class UsersController extends AppController {
 	public function login()
 	{
 		if($this->request->is('post')){
+			$email = $this->request->data['User']['email'];
+			// $storedPassword, is a previously generated bcrypt hash.
+			$hashed_password = $this->request->data['User']['encrypted_password'];
+			$newHash = Security::hash($unhashed_password, 'blowfish', $hashed_password);
+			$this->log($unhashed_password);
+			$this->log($newHash);
 			if($this->Auth->login()){
 				// return $this->redirect(array('controller' => 'listings', 'action' => 'index'));
 				return $this->redirect($this->Auth->redirect());
