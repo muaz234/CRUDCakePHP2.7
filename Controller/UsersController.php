@@ -51,6 +51,7 @@ class UsersController extends AppController {
 
 	public function beforeFilter() {
 		parent::beforeFilter();
+
 	}
 
 	public function index() {
@@ -158,6 +159,11 @@ class UsersController extends AppController {
 
 	public function login()
 	{
+
+		if($this->Session->read('Auth.User')){
+			$this->Session->setFlash('You are currently logged in.');
+			return $this->redirect($this->Auth->redirectUrl());
+		}
 		if($this->request->is('post', 'put')){
 			// $email = '';
 			// $hashed_password = ''; 
@@ -169,7 +175,7 @@ class UsersController extends AppController {
 			// $this->log($newHash);
 			if($this->Auth->login()){
 				// return $this->redirect(array('controller' => 'listings', 'action' => 'index'));
-				return $this->redirect($this->Auth->redirect());
+				return $this->redirect($this->Auth->redirectUrl());
 			}
 			else{
 				$this->Session->setFlash(__('Your email and password combination did not match. Please retry.'),'default', array('class' => 'alert alert-danger'));

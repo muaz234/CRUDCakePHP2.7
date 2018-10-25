@@ -23,7 +23,7 @@ App::uses('Controller', 'Controller');
  */
 class AppController extends Controller {
 
-    public $components = array('DebugKit.Toolbar','Paginator', 'Session', 'Flash',
+    public $components = array('DebugKit.Toolbar','Paginator', 'Session', 'Flash','RequestHandler',
     'Auth' => array(
 		'loginRedirect' => array(
 			'controller' => 'listings',
@@ -50,6 +50,9 @@ class AppController extends Controller {
 public function beforeFilter()
 {
 	$this->Auth->allow('login', 'logout', 'add');
+	if(!$this->Auth->loggedIn()) {
+		$this->Auth->authError = false;
+	}
 	// Security::setHash('blowfish');
 
 }
